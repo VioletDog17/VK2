@@ -1,12 +1,10 @@
-class Comment {
-    var count = 0
-    var canPost = true
-    var groupsCanPost = false
-    var canClose = false
-    var canOpen = false
-
-    override fun toString(): String {
-        return "[ $count, $canPost, $groupsCanPost, $canClose, $canOpen ]"
-    }
-
-}
+data class Comment(
+    val id: Int = 0,
+    val text: String = "No text",
+    val count: Int = 0,
+    val canPost: Boolean = true,
+    val groupsCanPost: Boolean = false,
+    val canClose: Boolean = false,
+    val canOpen: Boolean = false,
+    val alive: Boolean = true
+)
