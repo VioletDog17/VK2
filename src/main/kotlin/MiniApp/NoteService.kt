@@ -48,7 +48,7 @@ class NoteService {
     }
 
     fun getById(id: Int): DataNote { //Возвращает заметку по её id.
-        return notes[id] ?: throw NoteNotFoundException("No post with $id")
+        return notes[id - 1] ?: throw NoteNotFoundException("No post with $id")
     }
 
     fun restoreNote(id: Int): Boolean { //Восстанавливает удалённый комментарий.
