@@ -19,10 +19,16 @@ class WallService {
         return false
     }
 
-    fun createComment(postId: Int, comment: Comment) {
-        posts[postId].comment.plusElement(comment) ?: throw PostNotFoundException("No post with $postId")
-
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for (i in posts.indices) {
+            if (posts[i].id == postId) {
+                posts[i].comment.plusElement(comment)
+                return comment
+            }
+        }
+        throw PostNotFoundException("No post with $postId")
     }
+
 }
 
 class PostNotFoundException(messege: String) : RuntimeException(messege)

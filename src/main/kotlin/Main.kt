@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    val newComment = Comment("Hi")
+    val newComment = Comment(1, "HI")
     val comments = emptyArray<Comment>()
     val likes = Likes()
     val service = WallService()
