@@ -26,7 +26,7 @@ class WallService {
                 return comment
             }
         }
-        throw PostNotFoundException("No post with $postId")
+        throw PostNotFoundException("No post with $postId ID")
     }
 
 }
