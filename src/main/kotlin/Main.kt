@@ -49,6 +49,7 @@ fun main(args: Array<String>) {
     direct2.editMsg(direct2.getLastMsg(), "adc")
     println(msgService.getChatList())
     println()
+    println()
     println("Unread chats " + (msgService.getUnreadChatsCount()).toString())
     println(msgService.getChatList())
     println()
