@@ -12,7 +12,7 @@ class MessegeService {
         return chats.last()
     }
 
-    fun deleteChat(chat: DirectMessages): Boolean { //Удалить чат, т. е. целиком удалить всю переписку.
+    fun deleteChat(chat: DirectMessages): Boolean {
         for (i in chats.indices) {
             if (chats[i].getIdChat() == chat.chatId) {
                 chats.removeAt(i)
@@ -23,12 +23,8 @@ class MessegeService {
     }
 
     fun getChatList(): String {
-        var ans: String = ""
-        for (i in chats.indices) {
-            var txt = chats[i].getLastMsg().text
-            ans += (chats[i].getLastMsg().fromId).toString() + "\n" + txt + "      " + (chats[i].getLastMsg().time).toString() + " -> " + chats[i].getLastMsg().status + "\n \n"
-
-        }
+        val ans = chats.asSequence()
+            .joinToString(separator = "\n") { it.LastToString() }
         return ans
     }
 
@@ -38,12 +34,8 @@ class MessegeService {
     }
 
     fun getLastMsgList(): String {
-        var ans: String = ""
-        var count: Int = 1
-        for (i in chats.indices) {
-            ans += count.toString() + ". " + chats[i].getLastMsg().text + "\n"
-            count++
-        }
+        val ans = chats.asSequence()
+            .joinToString(separator = "\n") { it.getLastMsg().text }
         return ans
     }
 

@@ -66,6 +66,11 @@ class DirectMessages {
     fun getIdChat(): Int {
         return chatId
     }
+    fun LastToString(): String {
+        val ans =
+            messeges.last().fromId.toString() + "\n" + messeges.last().text + "  " + messeges.last().time + " -> " + messeges.last().status
+        return ans
+    }
 }
 
 class MsgNotFoundException(messege: String) : RuntimeException(messege)
